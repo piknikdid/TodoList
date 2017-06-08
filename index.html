@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='todoApp'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/style.css">
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+  <script src="node_modules/angular-route/angular-route.min.js"></script>
+  <script src="app/todoApp.js"></script>
+  <title>ToDoList</title>
+</head>
+<body ng-controller='todoController'>
+  <div class="container">
+    <form  method="submit">
+      <input class="col-sm-8 col-sm-offset-2 inputTitle" maxlength=45 ng-model="title">
+      <button class="btn-success md-primary md-raised" ng-click="record()">Add</button>
+        <ol class="list-group col-sm-8 col-sm-offset-2 listGroup">
+            <li class = 'task'  ng-repeat="task in newTasks">{{ task }}
+              <button class="badge btn-danger" ng-click="delete(task)">X</button>
+            </li>
+        </ol>
+    </form>
+  </div>
+</body>
+</html>
